@@ -1,5 +1,6 @@
 import logoNextU from "@/assets/logo-nextu.jpg";
 import mascotaNextU from "@/assets/mascota-nextu.jpg";
+import Packages from "@/components/Packages";
 
 const Hero = () => {
   return (
@@ -17,14 +18,20 @@ const Hero = () => {
           />
         </div>
 
-        {/* Logo */}
+        {/* Logo - bigger, no card frame */}
         <div className="flex justify-center mb-10">
           <img
             src={logoNextU}
             alt="Next U - Beyond the Ordinary"
-            className="w-72 md:w-96 rounded-2xl"
+            className="w-[28rem] md:w-[36rem] lg:w-[42rem] rounded-2xl"
           />
         </div>
+
+        {/* Big catchy phrase */}
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 opacity-0 animate-fade-in">
+          ¿Estás listo para el{" "}
+          <span className="text-gradient">siguiente nivel</span>?
+        </h1>
 
         {/* Tagline */}
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 opacity-0 animate-fade-in" style={{ animationDelay: "0.2s" }}>
@@ -36,9 +43,11 @@ const Hero = () => {
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in" style={{ animationDelay: "0.6s" }}>
-          <a href="#servicios" className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity">
-            Nuestros Servicios
-          </a>
+          <Packages>
+            <button className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-primary text-primary-foreground font-bold text-base tracking-wide hover:opacity-90 transition-opacity">
+              Empezar Ahora
+            </button>
+          </Packages>
           <a href="#portafolio" className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-border text-foreground font-medium text-sm tracking-wide hover:bg-secondary transition-colors">
             Ver Portafolio
           </a>
