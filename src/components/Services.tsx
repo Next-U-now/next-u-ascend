@@ -1,4 +1,4 @@
-import { Rocket, TrendingUp, Lightbulb } from "lucide-react";
+import { Rocket, TrendingUp, Lightbulb, Bot, Zap, Cpu } from "lucide-react";
 
 const services = [
   {
@@ -16,17 +16,35 @@ const services = [
     title: "Expande tu Alcance",
     description: "Llevamos tu marca a nuevos mercados con estrategias digitales, presencia online y posicionamiento de marca.",
   },
+  {
+    icon: Bot,
+    title: "Inteligencia Artificial",
+    description: "Integramos soluciones de IA en tu negocio: chatbots inteligentes, análisis predictivo, generación de contenido y asistentes virtuales personalizados.",
+  },
+  {
+    icon: Zap,
+    title: "Automatización",
+    description: "Automatizamos tareas repetitivas, flujos de trabajo, emails, facturación y procesos internos para que te enfoques en lo que importa.",
+  },
+  {
+    icon: Cpu,
+    title: "Transformación Digital",
+    description: "Digitalizamos tu operación completa con herramientas de IA, dashboards en tiempo real, CRM automatizado y sistemas inteligentes.",
+  },
 ];
 
 const Services = () => {
   return (
     <section id="servicios" className="py-32 px-6">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">Servicios</p>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
             Lo que hacemos
           </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Combinamos estrategia empresarial con <span className="text-primary font-semibold">Inteligencia Artificial</span> y <span className="text-primary font-semibold">automatización</span> para llevar tu negocio al siguiente nivel.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
