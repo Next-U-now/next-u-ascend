@@ -70,4 +70,21 @@
   .glow-border {
     box-shadow: 0 0 30px hsl(68 100% 50% / 0.1), inset 0 1px 0 hsl(0 0% 100% / 0.05);
   }
+
+  .neon-card {
+    transition: box-shadow 0.5s ease, border-color 0.5s ease;
+  }
+
+  .neon-card:hover {
+    box-shadow: 0 0 20px hsl(68 100% 50% / 0.2), 0 0 60px hsl(68 100% 50% / 0.1), 0 0 100px hsl(68 100% 50% / 0.05);
+    border-color: hsl(68 100% 50% / 0.4);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(68 100% 50% / 0.3), 0 0 30px hsl(68 100% 50% / 0.15);
+  }
+
+  .neon-card:hover .neon-text {
+    text-shadow: 0 0 10px hsl(68 100% 50% / 0.5), 0 0 40px hsl(68 100% 50% / 0.25), 0 0 80px hsl(68 100% 50% / 0.1);
+  }
 }
