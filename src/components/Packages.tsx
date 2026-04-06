@@ -1,42 +1,46 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, Globe, Wrench, DollarSign } from "lucide-react";
 
 const packages = [
   {
     name: "Next U",
-    price: "$99",
+    price: "$50",
     oldPrice: null,
     description: "Tu primer paso al siguiente nivel",
     features: ["Consultoría inicial con IA", "Plan de negocios básico", "1 sesión de mentoría", "Guía de primeros pasos", "Análisis IA de mercado"],
     highlight: false,
     offer: false,
+    hasWeb: false,
   },
   {
     name: "Next U Plus",
-    price: "$199",
-    oldPrice: "$299",
+    price: "$125",
+    oldPrice: "$199",
     description: "Impulsa tu crecimiento",
     features: ["Todo de Next U", "Estrategia de marketing con IA", "4 sesiones de mentoría", "Análisis de competencia IA", "Branding básico", "Automatización de procesos"],
     highlight: false,
     offer: true,
+    hasWeb: false,
   },
   {
     name: "Next U Premium",
     price: "$399",
     oldPrice: "$599",
     description: "Escala con inteligencia artificial",
-    features: ["Todo de Next U Plus", "Presencia digital completa", "8 sesiones de mentoría", "Chatbot IA personalizado", "Estrategia de redes con IA", "Diseño de marca", "Reportes IA mensuales"],
+    features: ["Todo de Next U Plus", "Página web profesional", "Mantenimiento web incluido", "8 sesiones de mentoría", "Chatbot IA personalizado", "Estrategia de redes con IA", "Diseño de marca", "Reportes IA mensuales"],
     highlight: true,
     offer: true,
+    hasWeb: true,
   },
   {
     name: "Next U VIP",
-    price: "Personalizado",
+    price: "Un solo pago",
     oldPrice: null,
-    description: "Sin límites, a tu medida",
-    features: ["Todo de Next U Premium", "Desarrollo web/app con IA", "Sesiones ilimitadas", "Automatización total", "Equipo dedicado", "Estrategia 360° con IA", "Acceso directo al CEO"],
+    description: "Sin límites, a tu medida — oferta de pago único acorde a tu proyecto",
+    features: ["Todo de Next U Premium", "Desarrollo web/app con IA", "Mantenimiento web/app incluido", "Sesiones ilimitadas", "Automatización total", "Equipo dedicado", "Estrategia 360° con IA", "Acceso directo al CEO"],
     highlight: false,
-    offer: false,
+    offer: true,
+    hasWeb: true,
   },
 ];
 
@@ -81,12 +85,23 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                   <p className="text-sm text-muted-foreground line-through">{pkg.oldPrice}</p>
                 )}
               </div>
-              <p className="text-xs text-muted-foreground mt-1 mb-4">{pkg.description}</p>
+              <p className="text-xs text-muted-foreground mt-1 mb-3">{pkg.description}</p>
+
+              {/* Cash discount badge */}
+              <div className="flex items-center gap-1.5 mb-3 px-2 py-1 rounded-lg bg-green-500/10 border border-green-500/20">
+                <DollarSign className="w-3.5 h-3.5 text-green-400 shrink-0" />
+                <span className="text-[10px] text-green-400 font-semibold">25% OFF pagando en efectivo</span>
+              </div>
+
               <ul className="space-y-2 flex-1">
                 {pkg.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
                     {f.includes("IA") ? (
                       <Sparkles className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                    ) : f.includes("web") || f.includes("Página") ? (
+                      <Globe className="w-3.5 h-3.5 text-blue-400 mt-0.5 shrink-0" />
+                    ) : f.includes("Mantenimiento") ? (
+                      <Wrench className="w-3.5 h-3.5 text-orange-400 mt-0.5 shrink-0" />
                     ) : (
                       <Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                     )}
@@ -94,6 +109,13 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                   </li>
                 ))}
               </ul>
+
+              {pkg.hasWeb && (
+                <p className="text-[10px] text-muted-foreground mt-2 italic border-t border-border pt-2">
+                  * Incluye mantenimiento web con costo mensual accesible
+                </p>
+              )}
+
               <a
                 href="#contacto"
                 className={`mt-4 text-center py-2 rounded-full text-sm font-semibold transition-all ${
