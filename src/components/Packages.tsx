@@ -36,8 +36,8 @@ const packages = [
     name: "Next U VIP",
     price: "Un solo pago",
     oldPrice: null,
-    description: "Sin límites, a tu medida — oferta de pago único acorde a tu proyecto",
-    features: ["Todo de Next U Premium", "Desarrollo web/app con IA", "Mantenimiento web/app incluido", "Sesiones ilimitadas", "Automatización total", "Equipo dedicado", "Estrategia 360° con IA", "Acceso directo al CEO"],
+    description: "Sin límites, a tu medida — un solo pago que incluye mantenimiento anual",
+    features: ["Todo de Next U Premium", "Desarrollo web/app con IA", "Mantenimiento anual incluido en un solo pago", "Valor acordado con el dueño", "Sesiones ilimitadas", "Automatización total", "Equipo dedicado", "Estrategia 360° con IA", "Acceso directo al CEO"],
     highlight: false,
     offer: true,
     hasWeb: true,
@@ -110,9 +110,14 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                 ))}
               </ul>
 
-              {pkg.hasWeb && (
+              {pkg.hasWeb && pkg.name !== "Next U VIP" && (
                 <p className="text-[10px] text-muted-foreground mt-2 italic border-t border-border pt-2">
                   * Incluye mantenimiento web con costo mensual accesible
+                </p>
+              )}
+              {pkg.name === "Next U VIP" && (
+                <p className="text-[10px] text-muted-foreground mt-2 italic border-t border-border pt-2">
+                  * Mantenimiento anual incluido en un solo pago, valor acordado directamente con el dueño
                 </p>
               )}
 
