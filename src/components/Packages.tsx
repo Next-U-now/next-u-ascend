@@ -110,9 +110,14 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                 ))}
               </ul>
 
-              {pkg.hasWeb && (
+              {pkg.hasWeb && pkg.name !== "Next U VIP" && (
                 <p className="text-[10px] text-muted-foreground mt-2 italic border-t border-border pt-2">
                   * Incluye mantenimiento web con costo mensual accesible
+                </p>
+              )}
+              {pkg.name === "Next U VIP" && (
+                <p className="text-[10px] text-muted-foreground mt-2 italic border-t border-border pt-2">
+                  * Mantenimiento anual incluido en un solo pago, valor acordado directamente con el dueño
                 </p>
               )}
 
