@@ -39,7 +39,7 @@ const Portfolio = () => {
           className="group block mb-10 rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/5 to-transparent overflow-hidden hover:border-primary/60 transition-all duration-500 neon-card"
         >
           <div className="flex flex-col md:flex-row items-center gap-8 p-8 md:p-12">
-            <div className="w-40 h-40 md:w-52 md:h-52 shrink-0 flex items-center justify-center">
+            <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 flex items-center justify-center">
               <img src={clients[0].logo} alt={clients[0].name} className="w-full h-full object-contain rounded-2xl transition-transform duration-500 group-hover:scale-105" />
             </div>
             <div className="text-center md:text-left flex-1">
@@ -60,7 +60,7 @@ const Portfolio = () => {
               key={i}
               className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-6 hover:border-primary/50 transition-all duration-500 neon-card"
             >
-              <div className="w-full aspect-square flex items-center justify-center mb-4">
+              <div className="w-full aspect-[4/3] flex items-center justify-center mb-4">
                 <img
                   src={client.logo}
                   alt={client.name}
