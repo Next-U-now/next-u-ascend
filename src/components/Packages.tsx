@@ -1,5 +1,5 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Check, Sparkles, Globe, Wrench, DollarSign } from "lucide-react";
+import { Check, Sparkles, Globe, Wrench, DollarSign, Users } from "lucide-react";
 
 const packages = [
   {
@@ -27,7 +27,7 @@ const packages = [
     price: "$399",
     oldPrice: "$599",
     description: "Escala con inteligencia artificial",
-    features: ["Todo de Next U Plus", "Página web profesional", "Mantenimiento web incluido", "8 sesiones de mentoría", "Chatbot IA personalizado", "Estrategia de redes con IA", "Diseño de marca", "Reportes IA mensuales"],
+    features: ["Todo de Next U Plus", "Página web profesional", "Mantenimiento web incluido", "8 sesiones de mentoría", "Chatbot IA personalizado", "Estrategia de redes con IA", "Diseño de marca", "Reportes IA mensuales", "Grupo exclusivo"],
     highlight: true,
     offer: true,
     hasWeb: true,
@@ -37,7 +37,7 @@ const packages = [
     price: "Un solo pago",
     oldPrice: null,
     description: "Sin límites, a tu medida — un solo pago que incluye mantenimiento anual",
-    features: ["Todo de Next U Premium", "Desarrollo web/app con IA", "Mantenimiento anual incluido en un solo pago", "Valor acordado con el dueño", "Sesiones ilimitadas", "Automatización total", "Equipo dedicado", "Estrategia 360° con IA", "Acceso directo al CEO"],
+    features: ["Todo de Next U Premium", "Desarrollo web/app con IA", "Mantenimiento anual incluido en un solo pago", "Valor acordado con el dueño", "Sesiones ilimitadas", "Automatización total", "Equipo dedicado", "Estrategia 360° con IA", "Acceso directo al CEO", "Grupo exclusivo VIP"],
     highlight: false,
     offer: true,
     hasWeb: true,
@@ -98,6 +98,8 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                   <li key={f} className="flex items-start gap-2 text-xs text-muted-foreground">
                     {f.includes("IA") ? (
                       <Sparkles className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
+                    ) : f.includes("Grupo exclusivo") ? (
+                      <Users className="w-3.5 h-3.5 text-purple-400 mt-0.5 shrink-0" />
                     ) : f.includes("web") || f.includes("Página") ? (
                       <Globe className="w-3.5 h-3.5 text-blue-400 mt-0.5 shrink-0" />
                     ) : f.includes("Mantenimiento") ? (
