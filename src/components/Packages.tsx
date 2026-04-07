@@ -90,7 +90,7 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
               {/* Cash discount badge */}
               <div className="flex items-center gap-1.5 mb-3 px-2 py-1 rounded-lg bg-green-500/10 border border-green-500/20">
                 <DollarSign className="w-3.5 h-3.5 text-green-400 shrink-0" />
-                <span className="text-[10px] text-green-400 font-semibold">25% OFF pagando en efectivo</span>
+                <span className="text-[10px] text-green-400 font-semibold">10% OFF pagando en efectivo</span>
               </div>
 
               <ul className="space-y-2 flex-1">
