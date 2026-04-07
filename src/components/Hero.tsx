@@ -35,7 +35,7 @@ const Hero = () => {
 
         {/* Tagline */}
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 opacity-0 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-          Llevamos tu negocio al siguiente nivel con <span className="text-primary font-semibold">más de 20 años de experiencia en negocios</span>.
+          Llevamos tu negocio al siguiente nivel con <span className="text-primary font-semibold">más de 10 años de experiencia en negocios</span>.
         </p>
         <p className="text-muted-foreground max-w-xl mx-auto mb-10 opacity-0 animate-fade-in" style={{ animationDelay: "0.4s" }}>
           Ya sea que quieras empezar, crecer o expandirte — estamos contigo en cada paso.
