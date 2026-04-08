@@ -3,6 +3,16 @@ import { Check, Sparkles, Globe, Wrench, DollarSign, Users } from "lucide-react"
 
 const packages = [
   {
+    name: "Next U VIP",
+    price: "Un solo pago",
+    oldPrice: null,
+    description: "Sin límites, a tu medida — un solo pago que incluye mantenimiento anual",
+    features: ["Todo de Next U Premium", "Desarrollo web/app con IA", "Mantenimiento anual incluido en un solo pago", "Valor acordado con el dueño", "Sesiones ilimitadas", "Automatización total", "Equipo dedicado", "Estrategia 360° con IA", "Acceso directo al CEO", "Grupo exclusivo VIP"],
+    highlight: true,
+    offer: true,
+    hasWeb: true,
+  },
+  {
     name: "Next U",
     price: "$50",
     oldPrice: null,
@@ -28,22 +38,11 @@ const packages = [
     oldPrice: "$599",
     description: "Escala con inteligencia artificial",
     features: ["Todo de Next U Plus", "Página web profesional", "Mantenimiento web incluido", "8 sesiones de mentoría", "Chatbot IA personalizado", "Estrategia de redes con IA", "Diseño de marca", "Reportes IA mensuales", "Grupo exclusivo"],
-    highlight: true,
-    offer: true,
-    hasWeb: true,
-  },
-  {
-    name: "Next U VIP",
-    price: "Un solo pago",
-    oldPrice: null,
-    description: "Sin límites, a tu medida — un solo pago que incluye mantenimiento anual",
-    features: ["Todo de Next U Premium", "Desarrollo web/app con IA", "Mantenimiento anual incluido en un solo pago", "Valor acordado con el dueño", "Sesiones ilimitadas", "Automatización total", "Equipo dedicado", "Estrategia 360° con IA", "Acceso directo al CEO", "Grupo exclusivo VIP"],
     highlight: false,
     offer: true,
     hasWeb: true,
   },
 ];
-
 const Packages = ({ children }: { children: React.ReactNode }) => {
   return (
     <Dialog>

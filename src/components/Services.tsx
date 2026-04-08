@@ -1,4 +1,4 @@
-import { Rocket, TrendingUp, Lightbulb, Bot, Zap, Cpu } from "lucide-react";
+import { Rocket, TrendingUp, Lightbulb, Bot, Zap, Cpu, Smartphone, Megaphone, Palette, Video } from "lucide-react";
 
 const services = [
   {
@@ -31,8 +31,27 @@ const services = [
     title: "Transformación Digital",
     description: "Digitalizamos tu operación completa con herramientas de IA, dashboards en tiempo real, CRM automatizado y sistemas inteligentes.",
   },
+  {
+    icon: Smartphone,
+    title: "Desarrollo de Apps",
+    description: "Creamos aplicaciones web y móviles a medida, con diseño moderno, rendimiento óptimo e integración con IA para potenciar tu negocio.",
+  },
+  {
+    icon: Megaphone,
+    title: "Marketing Digital & Crecimiento",
+    description: "Estrategias de marketing digital, redes sociales, publicidad pagada, SEO y growth hacking para escalar tu presencia online.",
+  },
+  {
+    icon: Palette,
+    title: "Diseño Gráfico & Branding",
+    description: "Identidad visual, logotipos, material publicitario, branding completo y diseño gráfico profesional para destacar tu marca.",
+  },
+  {
+    icon: Video,
+    title: "Edición de Video & Contenido",
+    description: "Producción y edición de video profesional, contenido para redes sociales, reels, shorts y material audiovisual de alto impacto.",
+  },
 ];
-
 const Services = () => {
   return (
     <section id="servicios" className="py-32 px-6">
