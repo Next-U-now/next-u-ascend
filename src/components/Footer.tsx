@@ -80,7 +80,9 @@ const Footer = () => (
           {socials.map((s) => (
             <a
               key={s.name}
-              href="#"
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label={s.name}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
