@@ -11,12 +11,12 @@ import logoNexvend from "@/assets/logo-nexvend.png";
 
 const clients = [
   { name: "NexVend", logo: logoNexvend, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20NexVend" },
-  { name: "Quiereté", logo: logoQuierete },
-  { name: "GilmarFly", logo: logoGilmarfly },
+  { name: "Quiereté", logo: logoQuierete, link: "https://www.instagram.com/quierete_tea?igsh=bWFmaWxvM2xrOTN2" },
+  { name: "GilmarFly", logo: logoGilmarfly, link: "https://www.tiktok.com/@gilmarfly?_r=1&_t=ZT-95Nih5w20tB" },
   { name: "Ascendio Growth Partners", logo: logoAscendio },
-  { name: "Ecuñan", logo: logoEcunan },
-  { name: "EcuaCybrg Bionics", logo: logoEcuacybrg },
-  { name: "Ayara", logo: logoAyara },
+  { name: "Ecuñan", logo: logoEcunan, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ecuñan" },
+  { name: "EcuaCybrg Bionics", logo: logoEcuacybrg, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20EcuaCybrg" },
+  { name: "Ayara", logo: logoAyara, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ayara" },
 ];
 
 const Portfolio = () => {
@@ -30,6 +30,9 @@ const Portfolio = () => {
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Proyectos reales impulsados por Next U — desde startups hasta marcas en expansión
+          </p>
+          <p className="text-sm text-primary mt-2 font-medium animate-pulse">
+            ✨ Te invito a conocerlas — haz click en ellas para ver qué pasa
           </p>
         </div>
 
@@ -65,18 +68,21 @@ const Portfolio = () => {
             <CarouselContent className="-ml-4">
               {clients.slice(1).map((client, i) => (
                 <CarouselItem key={i} className="pl-4 basis-1/2 md:basis-1/3">
-                  <div className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card">
-                    <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3">
-                      <img
-                        src={client.logo}
-                        alt={client.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                  {client.link ? (
+                    <a href={client.link} target="_blank" rel="noopener noreferrer" className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card cursor-pointer">
+                      <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3">
+                        <img src={client.logo} alt={client.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      </div>
+                      <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">{client.name}</h3>
+                    </a>
+                  ) : (
+                    <div className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card">
+                      <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3">
+                        <img src={client.logo} alt={client.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      </div>
+                      <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">{client.name}</h3>
                     </div>
-                    <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">
-                      {client.name}
-                    </h3>
-                  </div>
+                  )}
                 </CarouselItem>
               ))}
             </CarouselContent>
