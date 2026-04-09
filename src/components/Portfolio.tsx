@@ -11,12 +11,12 @@ import logoNexvend from "@/assets/logo-nexvend.png";
 
 const clients = [
   { name: "NexVend", logo: logoNexvend, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20NexVend" },
-  { name: "Quiereté", logo: logoQuierete },
-  { name: "GilmarFly", logo: logoGilmarfly },
+  { name: "Quiereté", logo: logoQuierete, link: "https://www.instagram.com/quierete_tea?igsh=bWFmaWxvM2xrOTN2" },
+  { name: "GilmarFly", logo: logoGilmarfly, link: "https://www.tiktok.com/@gilmarfly?_r=1&_t=ZT-95Nih5w20tB" },
   { name: "Ascendio Growth Partners", logo: logoAscendio },
-  { name: "Ecuñan", logo: logoEcunan },
-  { name: "EcuaCybrg Bionics", logo: logoEcuacybrg },
-  { name: "Ayara", logo: logoAyara },
+  { name: "Ecuñan", logo: logoEcunan, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ecuñan" },
+  { name: "EcuaCybrg Bionics", logo: logoEcuacybrg, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20EcuaCybrg" },
+  { name: "Ayara", logo: logoAyara, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ayara" },
 ];
 
 const Portfolio = () => {
@@ -30,6 +30,9 @@ const Portfolio = () => {
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Proyectos reales impulsados por Next U — desde startups hasta marcas en expansión
+          </p>
+          <p className="text-sm text-primary mt-2 font-medium animate-pulse">
+            ✨ Te invito a conocerlas — haz click en ellas para ver qué pasa
           </p>
         </div>
 
