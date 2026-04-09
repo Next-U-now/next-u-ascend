@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Calendar, Gift, ChevronDown } from "lucide-react";
 
 const plans = ["Next U ($50)", "Next U Plus ($125)", "Next U Premium ($399)", "Next U VIP (Personalizado)", "Sin plan — Consulta inicial"];
@@ -77,11 +77,11 @@ const FormFields = ({ formData, setFormData, showPlan, onSent }: {
 const ContactForm = () => {
   const [openSection, setOpenSection] = useState<"cita" | "free" | null>(null);
 
-  useState(() => {
+  useEffect(() => {
     const handler = () => setOpenSection("cita");
     window.addEventListener("open-cita", handler);
     return () => window.removeEventListener("open-cita", handler);
-  });
+  }, []);
   const [appointmentData, setAppointmentData] = useState<FormData>({ ...emptyForm });
   const [freeData, setFreeData] = useState<FormData>({ ...emptyForm });
   const [sentMsg, setSentMsg] = useState<string | null>(null);
