@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Calendar, Gift, ChevronDown } from "lucide-react";
 
-const plans = ["Next U ($50)", "Next U Plus ($125)", "Next U Premium ($399)", "Next U VIP (Personalizado)", "Sin plan — Consulta inicial"];
+const plans = ["Next U VIP (Personalizado)", "Next U Premium ($399)", "Next U Plus ($125)", "Next U ($50)", "Sin plan — Consulta inicial"];
 
 const businessTypes = ["Comercio / Retail", "Servicios profesionales", "Restaurante / Alimentos", "Tecnología", "Salud / Bienestar", "Educación", "Otro"];
 
@@ -60,10 +60,15 @@ const FormFields = ({ formData, setFormData, showPlan, onSent }: {
         {businessTypes.map(t => <option key={t} value={t}>{t}</option>)}
       </select>
       {showPlan && (
-        <select required value={formData.plan} onChange={update("plan")} className={`${inputClass} sm:col-span-2`}>
-          <option value="">Selecciona un plan *</option>
-          {plans.map(p => <option key={p} value={p}>{p}</option>)}
-        </select>
+        <div className="sm:col-span-2">
+          <select required value={formData.plan} onChange={update("plan")} className={inputClass}>
+            <option value="">Selecciona un plan *</option>
+            {plans.map(p => <option key={p} value={p}>{p}</option>)}
+          </select>
+          {formData.plan && (
+            <p className="text-xs text-primary mt-1.5 ml-1">✓ Plan seleccionado: {formData.plan}</p>
+          )}
+        </div>
       )}
       <textarea required placeholder="¿Qué necesitas? Describe tus requerimientos *" value={formData.requirements} onChange={update("requirements")} rows={3} className={`${inputClass} sm:col-span-2 resize-none`} />
       <input placeholder="Presupuesto estimado (opcional)" value={formData.budget} onChange={update("budget")} className={inputClass} />
@@ -74,17 +79,32 @@ const FormFields = ({ formData, setFormData, showPlan, onSent }: {
   );
 };
 
+// Map package names to plan values
+const planMap: Record<string, string> = {
+  "Next U": "Next U ($50)",
+  "Next U Plus": "Next U Plus ($125)",
+  "Next U Premium": "Next U Premium ($399)",
+  "Next U VIP": "Next U VIP (Personalizado)",
+};
+
 const ContactForm = () => {
   const [openSection, setOpenSection] = useState<"cita" | "free" | null>(null);
-
-  useEffect(() => {
-    const handler = () => setOpenSection("cita");
-    window.addEventListener("open-cita", handler);
-    return () => window.removeEventListener("open-cita", handler);
-  }, []);
   const [appointmentData, setAppointmentData] = useState<FormData>({ ...emptyForm });
   const [freeData, setFreeData] = useState<FormData>({ ...emptyForm });
   const [sentMsg, setSentMsg] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      const custom = e as CustomEvent;
+      const planName = custom.detail?.plan;
+      if (planName && planMap[planName]) {
+        setAppointmentData(prev => ({ ...prev, plan: planMap[planName] }));
+      }
+      setOpenSection("cita");
+    };
+    window.addEventListener("open-cita", handler);
+    return () => window.removeEventListener("open-cita", handler);
+  }, []);
 
   const handleSent = () => {
     setSentMsg("¡Mensaje enviado! 🎉 Te contactaremos pronto.");
