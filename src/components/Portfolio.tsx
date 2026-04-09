@@ -68,18 +68,21 @@ const Portfolio = () => {
             <CarouselContent className="-ml-4">
               {clients.slice(1).map((client, i) => (
                 <CarouselItem key={i} className="pl-4 basis-1/2 md:basis-1/3">
-                  <div className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card">
-                    <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3">
-                      <img
-                        src={client.logo}
-                        alt={client.name}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                  {client.link ? (
+                    <a href={client.link} target="_blank" rel="noopener noreferrer" className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card cursor-pointer">
+                      <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3">
+                        <img src={client.logo} alt={client.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      </div>
+                      <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">{client.name}</h3>
+                    </a>
+                  ) : (
+                    <div className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card">
+                      <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3">
+                        <img src={client.logo} alt={client.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                      </div>
+                      <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">{client.name}</h3>
                     </div>
-                    <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">
-                      {client.name}
-                    </h3>
-                  </div>
+                  )}
                 </CarouselItem>
               ))}
             </CarouselContent>
