@@ -129,7 +129,12 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                     ? "bg-primary text-primary-foreground hover:opacity-90"
                     : "bg-secondary text-foreground hover:bg-primary/10"
                 }`}
-                onClick={() => document.querySelector<HTMLButtonElement>("[data-radix-dialog-close]")?.click()}
+                onClick={() => {
+                  document.querySelector<HTMLButtonElement>("[data-radix-dialog-close]")?.click();
+                  setTimeout(() => {
+                    window.dispatchEvent(new CustomEvent("open-cita"));
+                  }, 300);
+                }}
               >
                 Elegir Plan
               </a>
