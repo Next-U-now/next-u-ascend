@@ -76,6 +76,12 @@ const FormFields = ({ formData, setFormData, showPlan, onSent }: {
 
 const ContactForm = () => {
   const [openSection, setOpenSection] = useState<"cita" | "free" | null>(null);
+
+  useState(() => {
+    const handler = () => setOpenSection("cita");
+    window.addEventListener("open-cita", handler);
+    return () => window.removeEventListener("open-cita", handler);
+  });
   const [appointmentData, setAppointmentData] = useState<FormData>({ ...emptyForm });
   const [freeData, setFreeData] = useState<FormData>({ ...emptyForm });
   const [sentMsg, setSentMsg] = useState<string | null>(null);
