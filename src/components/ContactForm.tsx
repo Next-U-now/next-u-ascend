@@ -97,10 +97,14 @@ const ContactForm = () => {
     const handler = (e: Event) => {
       const custom = e as CustomEvent;
       const planName = custom.detail?.plan;
+      const budget = custom.detail?.budget;
       if (planName && planMap[planName]) {
-        setAppointmentData(prev => ({ ...prev, plan: planMap[planName] }));
+        setAppointmentData(prev => ({ ...prev, plan: planMap[planName], budget: budget || prev.budget }));
       }
       setOpenSection("cita");
+      setTimeout(() => {
+        document.getElementById("contacto")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     };
     window.addEventListener("open-cita", handler);
     return () => window.removeEventListener("open-cita", handler);

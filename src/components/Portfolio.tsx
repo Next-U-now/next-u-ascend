@@ -13,7 +13,7 @@ const clients = [
   { name: "NexVend", logo: logoNexvend, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20NexVend" },
   { name: "Quiereté", logo: logoQuierete, link: "https://www.instagram.com/quierete_tea?igsh=bWFmaWxvM2xrOTN2" },
   { name: "GilmarFly", logo: logoGilmarfly, link: "https://www.tiktok.com/@gilmarfly?_r=1&_t=ZT-95Nih5w20tB" },
-  { name: "Ascendio Growth Partners", logo: logoAscendio },
+  { name: "Ascendio Growth Partners", logo: logoAscendio, link: "https://www.ascendiogp.com" },
   { name: "Ecuñan", logo: logoEcunan, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ecuñan" },
   { name: "EcuaCybrg Bionics", logo: logoEcuacybrg, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20EcuaCybrg" },
   { name: "Ayara", logo: logoAyara, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ayara" },
@@ -31,7 +31,7 @@ const Portfolio = () => {
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Proyectos reales impulsados por Next U — desde startups hasta marcas en expansión
           </p>
-          <p className="text-sm text-primary mt-2 font-medium animate-pulse">
+          <p className="text-lg md:text-xl text-primary mt-3 font-bold animate-pulse">
             ✨ Te invito a conocerlas — haz click en ellas para ver qué pasa
           </p>
         </div>
@@ -50,7 +50,8 @@ const Portfolio = () => {
             <div className="text-center md:text-left flex-1">
               <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">Nuevo Proyecto</span>
               <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gradient neon-text mb-2">{clients[0].name}</h3>
-              <p className="text-muted-foreground text-sm mb-4">Máquinas expendedoras inteligentes — promociona tu marca en espacios estratégicos con tecnología de vanguardia.</p>
+              <p className="text-muted-foreground text-sm mb-2">Máquinas expendedoras inteligentes — promociona tu marca en espacios estratégicos con tecnología de vanguardia.</p>
+              <p className="text-xs text-yellow-400 font-semibold mb-3">⚠️ ¿Problema con tu máquina expendedora? Haz click aquí</p>
               <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
                 Contáctanos por WhatsApp <ExternalLink className="w-4 h-4" />
               </span>
@@ -70,15 +71,15 @@ const Portfolio = () => {
                 <CarouselItem key={i} className="pl-4 basis-1/2 md:basis-1/3">
                   {client.link ? (
                     <a href={client.link} target="_blank" rel="noopener noreferrer" className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card cursor-pointer">
-                      <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3">
-                        <img src={client.logo} alt={client.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3 flex items-center justify-center">
+                        <img src={client.logo} alt={client.name} className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${client.name === "Ayara" ? "object-contain mix-blend-multiply" : "object-cover"}`} />
                       </div>
                       <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">{client.name}</h3>
                     </a>
                   ) : (
                     <div className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card">
-                      <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3">
-                        <img src={client.logo} alt={client.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3 flex items-center justify-center">
+                        <img src={client.logo} alt={client.name} className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${client.name === "Ayara" ? "object-contain mix-blend-multiply" : "object-cover"}`} />
                       </div>
                       <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">{client.name}</h3>
                     </div>

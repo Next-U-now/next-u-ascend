@@ -132,7 +132,7 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                 onClick={() => {
                   document.querySelector<HTMLButtonElement>("[data-radix-dialog-close]")?.click();
                   setTimeout(() => {
-                    window.dispatchEvent(new CustomEvent("open-cita", { detail: { plan: pkg.name } }));
+                    window.dispatchEvent(new CustomEvent("open-cita", { detail: { plan: pkg.name, budget: pkg.price } }));
                   }, 300);
                 }}
               >
