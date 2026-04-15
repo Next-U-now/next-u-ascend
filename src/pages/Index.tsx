@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
+import Packages from "@/components/Packages";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
@@ -13,6 +14,7 @@ const Index = () => (
       <Hero />
       <Services />
       <Portfolio />
+      <Packages />
       <ContactForm />
     </main>
     <Footer />

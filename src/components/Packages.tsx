@@ -1,5 +1,32 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useState } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Check, Sparkles, Globe, Wrench, DollarSign, Users } from "lucide-react";
+
+const businessTypes = ["Comercio / Retail", "Servicios profesionales", "Restaurante / Alimentos", "Tecnología", "Salud / Bienestar", "Educación", "Otro"];
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  businessName: string;
+  businessType: string;
+  requirements: string;
+  budget: string;
+  plan: string;
+}
+
+const emptyForm: FormData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  businessName: "",
+  businessType: "",
+  requirements: "",
+  budget: "",
+  plan: "",
+};
 
 const packages = [
   {
@@ -43,21 +70,41 @@ const packages = [
     hasWeb: true,
   },
 ];
-const Packages = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <Dialog>
-      <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto bg-card border-border">
-        <DialogHeader>
-          <DialogTitle className="text-2xl md:text-3xl font-bold text-center mb-2">
-            Nuestros Paquetes
-          </DialogTitle>
-          <p className="text-muted-foreground text-center text-sm">
-            Potenciados con Inteligencia Artificial
-          </p>
-        </DialogHeader>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
+const Packages = () => {
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [formData, setFormData] = useState<FormData>({ ...emptyForm });
+  const [sentMsg, setSentMsg] = useState<string | null>(null);
+
+  const openForPlan = (pkg: typeof packages[0]) => {
+    setFormData({ ...emptyForm, plan: `${pkg.name} (${pkg.price})`, budget: pkg.price });
+    setSentMsg(null);
+    setDialogOpen(true);
+  };
+
+  const update = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    setFormData(prev => ({ ...prev, [field]: e.target.value }));
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const message = `*Agendar Cita*%0APlan: ${formData.plan}%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${formData.phone}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
+    window.open(`https://wa.me/18093501344?text=${message}`, "_blank");
+    setSentMsg("¡Mensaje enviado! 🎉 Te contactaremos pronto.");
+    setTimeout(() => { setDialogOpen(false); setSentMsg(null); }, 3000);
+  };
+
+  const inputClass = "w-full rounded-xl border border-border bg-secondary/30 px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50";
+
+  return (
+    <section id="paquetes" className="py-32 px-6">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-10">
+          <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">Paquetes</p>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Nuestros Paquetes</h2>
+          <p className="text-muted-foreground mt-4">Potenciados con Inteligencia Artificial</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {packages.map((pkg) => (
             <div
               key={pkg.name}
@@ -69,11 +116,11 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
             >
               {pkg.highlight && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded-full bg-primary text-primary-foreground text-xs font-semibold">
-                  Popular
+                  Más Popular
                 </span>
               )}
               {pkg.offer && (
-                <span className="absolute -top-3 right-3 px-2 py-0.5 rounded-full bg-red-500 text-white text-xs font-bold animate-pulse">
+                <span className="absolute -top-3 right-3 px-2 py-0.5 rounded-full bg-destructive text-destructive-foreground text-xs font-bold animate-pulse">
                   🔥 Oferta
                 </span>
               )}
@@ -86,10 +133,9 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
               </div>
               <p className="text-xs text-muted-foreground mt-1 mb-3">{pkg.description}</p>
 
-              {/* Cash discount badge */}
-              <div className="flex items-center gap-1.5 mb-3 px-2 py-1 rounded-lg bg-green-500/10 border border-green-500/20">
-                <DollarSign className="w-3.5 h-3.5 text-green-400 shrink-0" />
-                <span className="text-[10px] text-green-400 font-semibold">10% OFF pagando en efectivo</span>
+              <div className="flex items-center gap-1.5 mb-3 px-2 py-1 rounded-lg bg-primary/10 border border-primary/20">
+                <DollarSign className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span className="text-[10px] text-primary font-semibold">10% OFF pagando en efectivo</span>
               </div>
 
               <ul className="space-y-2 flex-1">
@@ -98,11 +144,11 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                     {f.includes("IA") ? (
                       <Sparkles className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                     ) : f.includes("Grupo exclusivo") ? (
-                      <Users className="w-3.5 h-3.5 text-purple-400 mt-0.5 shrink-0" />
+                      <Users className="w-3.5 h-3.5 text-accent-foreground mt-0.5 shrink-0" />
                     ) : f.includes("web") || f.includes("Página") ? (
-                      <Globe className="w-3.5 h-3.5 text-blue-400 mt-0.5 shrink-0" />
+                      <Globe className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                     ) : f.includes("Mantenimiento") ? (
-                      <Wrench className="w-3.5 h-3.5 text-orange-400 mt-0.5 shrink-0" />
+                      <Wrench className="w-3.5 h-3.5 text-muted-foreground mt-0.5 shrink-0" />
                     ) : (
                       <Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                     )}
@@ -122,27 +168,56 @@ const Packages = ({ children }: { children: React.ReactNode }) => {
                 </p>
               )}
 
-              <a
-                href="#contacto"
+              <button
+                onClick={() => openForPlan(pkg)}
                 className={`mt-4 text-center py-2 rounded-full text-sm font-semibold transition-all ${
                   pkg.highlight
                     ? "bg-primary text-primary-foreground hover:opacity-90"
                     : "bg-secondary text-foreground hover:bg-primary/10"
                 }`}
-                onClick={() => {
-                  document.querySelector<HTMLButtonElement>("[data-radix-dialog-close]")?.click();
-                  setTimeout(() => {
-                    window.dispatchEvent(new CustomEvent("open-cita", { detail: { plan: pkg.name, budget: pkg.price } }));
-                  }, 300);
-                }}
               >
-                Elegir Plan
-              </a>
+                Empezar Ahora
+              </button>
             </div>
           ))}
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
+
+      {/* Dialog for appointment */}
+      <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="max-w-lg max-h-[85vh] overflow-y-auto bg-card border-border">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-center">Agenda tu Cita</DialogTitle>
+            <p className="text-muted-foreground text-center text-sm">
+              Plan seleccionado: <span className="text-primary font-semibold">{formData.plan}</span>
+            </p>
+          </DialogHeader>
+
+          {sentMsg ? (
+            <div className="text-center py-6">
+              <p className="text-primary font-bold text-lg">{sentMsg}</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
+              <input required placeholder="Nombre *" value={formData.firstName} onChange={update("firstName")} className={inputClass} />
+              <input required placeholder="Apellido *" value={formData.lastName} onChange={update("lastName")} className={inputClass} />
+              <input required type="email" placeholder="Email *" value={formData.email} onChange={update("email")} className={inputClass} />
+              <input required type="tel" placeholder="Teléfono *" value={formData.phone} onChange={update("phone")} className={inputClass} />
+              <input required placeholder="Nombre del negocio *" value={formData.businessName} onChange={update("businessName")} className={inputClass} />
+              <select required value={formData.businessType} onChange={update("businessType")} className={inputClass}>
+                <option value="">Tipo de negocio *</option>
+                {businessTypes.map(t => <option key={t} value={t}>{t}</option>)}
+              </select>
+              <textarea required placeholder="¿Qué necesitas? *" value={formData.requirements} onChange={update("requirements")} rows={3} className={`${inputClass} sm:col-span-2 resize-none`} />
+              <input placeholder="Presupuesto estimado (opcional)" value={formData.budget} onChange={update("budget")} className={inputClass} />
+              <button type="submit" className="sm:col-start-2 rounded-full bg-primary text-primary-foreground font-semibold py-2.5 hover:opacity-90 transition-opacity">
+                Enviar por WhatsApp
+              </button>
+            </form>
+          )}
+        </DialogContent>
+      </Dialog>
+    </section>
   );
 };
 
