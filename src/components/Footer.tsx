@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 
 const socials = [
   {
@@ -42,9 +42,13 @@ const Footer = () => (
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Contacto</h4>
           <div className="space-y-3">
-            <a href="mailto:nextunow@gmail.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <a href="mailto:next.u.now@outlook.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
               <Mail className="w-4 h-4 text-primary" />
-              nextunow@gmail.com
+              next.u.now@outlook.com
+            </a>
+            <a href="https://wa.me/593983949211" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
+              <Phone className="w-4 h-4 text-primary" />
+              +593 983 949 211
             </a>
           </div>
         </div>
