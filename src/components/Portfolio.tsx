@@ -44,8 +44,8 @@ const Portfolio = () => {
           className="group block mb-10 rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/5 to-transparent overflow-hidden hover:border-primary/60 transition-all duration-500 neon-card"
         >
           <div className="flex flex-col md:flex-row items-center gap-6 p-6 md:p-10">
-            <div className="w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-2xl overflow-hidden bg-secondary/30">
-              <img src={clients[0].logo} alt={clients[0].name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div className="w-24 h-24 md:w-28 md:h-28 shrink-0 rounded-2xl overflow-hidden bg-white p-1">
+              <img src={clients[0].logo} alt={clients[0].name} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
             </div>
             <div className="text-center md:text-left flex-1">
               <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">Nuevo Proyecto</span>
@@ -71,15 +71,15 @@ const Portfolio = () => {
                 <CarouselItem key={i} className="pl-4 basis-1/2 md:basis-1/3">
                   {client.link ? (
                     <a href={client.link} target="_blank" rel="noopener noreferrer" className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card cursor-pointer">
-              <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3 flex items-center justify-center">
-                        <img src={client.logo} alt={client.name} className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${client.name === "Ayara" ? "object-contain mix-blend-multiply" : "object-cover"}`} />
+                      <div className="w-28 h-28 rounded-xl overflow-hidden bg-white mb-3 flex items-center justify-center p-1">
+                        <img src={client.logo} alt={client.name} className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${client.name === "Ayara" ? "object-contain" : "object-cover"}`} />
                       </div>
                       <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">{client.name}</h3>
                     </a>
                   ) : (
                     <div className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card">
-              <div className="w-24 h-24 rounded-xl overflow-hidden bg-secondary/30 mb-3 flex items-center justify-center">
-                        <img src={client.logo} alt={client.name} className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${client.name === "Ayara" ? "object-contain mix-blend-multiply" : "object-cover"}`} />
+                      <div className="w-28 h-28 rounded-xl overflow-hidden bg-white mb-3 flex items-center justify-center p-1">
+                        <img src={client.logo} alt={client.name} className={`w-full h-full transition-transform duration-500 group-hover:scale-110 ${client.name === "Ayara" ? "object-contain" : "object-cover"}`} />
                       </div>
                       <h3 className="text-sm md:text-base font-extrabold tracking-tight text-center text-gradient neon-text">{client.name}</h3>
                     </div>

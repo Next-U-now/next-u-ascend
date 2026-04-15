@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Calendar, Gift, ChevronDown } from "lucide-react";
 
-const plans = ["Next U VIP (Personalizado)", "Next U Premium ($399)", "Next U Plus ($125)", "Next U ($50)", "Sin plan — Consulta inicial"];
+const plans: string[] = [];
 
 const businessTypes = ["Comercio / Retail", "Servicios profesionales", "Restaurante / Alimentos", "Tecnología", "Salud / Bienestar", "Educación", "Otro"];
 
@@ -59,17 +59,6 @@ const FormFields = ({ formData, setFormData, showPlan, onSent }: {
         <option value="">Tipo de negocio *</option>
         {businessTypes.map(t => <option key={t} value={t}>{t}</option>)}
       </select>
-      {showPlan && (
-        <div className="sm:col-span-2">
-          <select required value={formData.plan} onChange={update("plan")} className={inputClass}>
-            <option value="">Selecciona un plan *</option>
-            {plans.map(p => <option key={p} value={p}>{p}</option>)}
-          </select>
-          {formData.plan && (
-            <p className="text-xs text-primary mt-1.5 ml-1">✓ Plan seleccionado: {formData.plan}</p>
-          )}
-        </div>
-      )}
       <textarea required placeholder="¿Qué necesitas? Describe tus requerimientos *" value={formData.requirements} onChange={update("requirements")} rows={3} className={`${inputClass} sm:col-span-2 resize-none`} />
       <input placeholder="Presupuesto estimado (opcional)" value={formData.budget} onChange={update("budget")} className={inputClass} />
       <button type="submit" className="sm:col-start-2 rounded-full bg-primary text-primary-foreground font-semibold py-2.5 hover:opacity-90 transition-opacity">

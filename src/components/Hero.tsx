@@ -52,6 +52,13 @@ const Hero = () => {
             Ver Portafolio
           </a>
         </div>
+
+        {/* Agenda tu cita */}
+        <div className="mt-6 opacity-0 animate-fade-in" style={{ animationDelay: "0.8s" }}>
+          <a href="#contacto" className="inline-flex items-center justify-center px-8 py-3 rounded-full border-2 border-primary text-primary font-semibold text-sm tracking-wide hover:bg-primary hover:text-primary-foreground transition-all">
+            📅 Agenda tu Cita
+          </a>
+        </div>
       </div>
     </section>
   );
