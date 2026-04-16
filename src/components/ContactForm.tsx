@@ -82,7 +82,7 @@ const ContactForm = () => {
         )}
 
         <div className="rounded-2xl border border-border bg-card p-6">
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <form onSubmit={sendWhatsApp} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input required placeholder="Nombre *" value={formData.firstName} onChange={update("firstName")} className={inputClass} />
             <input required placeholder="Apellido *" value={formData.lastName} onChange={update("lastName")} className={inputClass} />
             <input required type="email" placeholder="Email *" value={formData.email} onChange={update("email")} className={inputClass} />
@@ -94,8 +94,11 @@ const ContactForm = () => {
             </select>
             <textarea required placeholder="¿Qué necesitas? Describe tus requerimientos *" value={formData.requirements} onChange={update("requirements")} rows={3} className={`${inputClass} sm:col-span-2 resize-none`} />
             <input placeholder="Presupuesto estimado (opcional)" value={formData.budget} onChange={update("budget")} className={inputClass} />
-            <button type="submit" className="sm:col-start-2 rounded-full bg-primary text-primary-foreground font-semibold py-2.5 hover:opacity-90 transition-opacity">
+            <button type="submit" className="rounded-full bg-primary text-primary-foreground font-semibold py-2.5 hover:opacity-90 transition-opacity">
               Enviar por WhatsApp
+            </button>
+            <button type="button" onClick={sendEmail} className="rounded-full border border-primary text-primary font-semibold py-2.5 hover:bg-primary/10 transition-colors">
+              Enviar por Correo
             </button>
           </form>
         </div>
