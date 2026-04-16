@@ -229,8 +229,11 @@ const Packages = () => {
               </select>
               <textarea required placeholder="¿Qué necesitas? *" value={formData.requirements} onChange={update("requirements")} rows={3} className={`${inputClass} sm:col-span-2 resize-none`} />
               <input placeholder="Presupuesto estimado (opcional)" value={formData.budget} onChange={update("budget")} className={inputClass} />
-              <button type="submit" className="sm:col-start-2 rounded-full bg-primary text-primary-foreground font-semibold py-2.5 hover:opacity-90 transition-opacity">
+              <button type="submit" className="rounded-full bg-primary text-primary-foreground font-semibold py-2.5 hover:opacity-90 transition-opacity">
                 Enviar por WhatsApp
+              </button>
+              <button type="button" onClick={sendEmail} className="rounded-full border border-primary text-primary font-semibold py-2.5 hover:bg-primary/10 transition-colors">
+                Enviar por Correo
               </button>
             </form>
           )}
