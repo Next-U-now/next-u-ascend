@@ -32,11 +32,32 @@ const ContactForm = () => {
   const update = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setFormData(prev => ({ ...prev, [field]: e.target.value }));
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const validate = () => {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.businessName || !formData.businessType || !formData.requirements) {
+      setSentMsg("Por favor completa los campos obligatorios.");
+      setTimeout(() => setSentMsg(null), 3000);
+      return false;
+    }
+    return true;
+  };
+
+  const sendWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
     const message = `*Primera Asesoría Gratis*%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${formData.phone}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
-    window.open(`https://wa.me/18093501344?text=${message}`, "_blank");
-    setSentMsg("¡Mensaje enviado! 🎉 Te contactaremos pronto.");
+    window.open(`https://wa.me/593983949211?text=${message}`, "_blank");
+    setSentMsg("¡Mensaje enviado por WhatsApp! 🎉");
+    setFormData({ ...emptyForm });
+    setTimeout(() => setSentMsg(null), 4000);
+  };
+
+  const sendEmail = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+    const subject = encodeURIComponent("Primera Asesoría Gratis - Next U");
+    const body = encodeURIComponent(`Nombre: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTel: ${formData.phone}\nNegocio: ${formData.businessName}\nTipo: ${formData.businessType}\nRequerimientos: ${formData.requirements}\nPresupuesto: ${formData.budget}`);
+    window.open(`mailto:next.u.now@outlook.com?subject=${subject}&body=${body}`, "_blank");
+    setSentMsg("¡Abriendo tu correo! 📧");
     setFormData({ ...emptyForm });
     setTimeout(() => setSentMsg(null), 4000);
   };
@@ -61,7 +82,7 @@ const ContactForm = () => {
         )}
 
         <div className="rounded-2xl border border-border bg-card p-6">
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <form onSubmit={sendWhatsApp} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input required placeholder="Nombre *" value={formData.firstName} onChange={update("firstName")} className={inputClass} />
             <input required placeholder="Apellido *" value={formData.lastName} onChange={update("lastName")} className={inputClass} />
             <input required type="email" placeholder="Email *" value={formData.email} onChange={update("email")} className={inputClass} />
@@ -73,8 +94,11 @@ const ContactForm = () => {
             </select>
             <textarea required placeholder="¿Qué necesitas? Describe tus requerimientos *" value={formData.requirements} onChange={update("requirements")} rows={3} className={`${inputClass} sm:col-span-2 resize-none`} />
             <input placeholder="Presupuesto estimado (opcional)" value={formData.budget} onChange={update("budget")} className={inputClass} />
-            <button type="submit" className="sm:col-start-2 rounded-full bg-primary text-primary-foreground font-semibold py-2.5 hover:opacity-90 transition-opacity">
+            <button type="submit" className="rounded-full bg-primary text-primary-foreground font-semibold py-2.5 hover:opacity-90 transition-opacity">
               Enviar por WhatsApp
+            </button>
+            <button type="button" onClick={sendEmail} className="rounded-full border border-primary text-primary font-semibold py-2.5 hover:bg-primary/10 transition-colors">
+              Enviar por Correo
             </button>
           </form>
         </div>
