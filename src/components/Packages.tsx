@@ -85,11 +85,30 @@ const Packages = () => {
   const update = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setFormData(prev => ({ ...prev, [field]: e.target.value }));
 
+  const validate = () => {
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.businessName || !formData.businessType || !formData.requirements) {
+      setSentMsg("Por favor completa los campos obligatorios.");
+      setTimeout(() => setSentMsg(null), 3000);
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
     const message = `*Agendar Cita*%0APlan: ${formData.plan}%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${formData.phone}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
-    window.open(`https://wa.me/18093501344?text=${message}`, "_blank");
-    setSentMsg("¡Mensaje enviado! 🎉 Te contactaremos pronto.");
+    window.open(`https://wa.me/593983949211?text=${message}`, "_blank");
+    setSentMsg("¡Mensaje enviado por WhatsApp! 🎉");
+    setTimeout(() => { setDialogOpen(false); setSentMsg(null); }, 3000);
+  };
+
+  const sendEmail = () => {
+    if (!validate()) return;
+    const subject = encodeURIComponent(`Agendar Cita - ${formData.plan}`);
+    const body = encodeURIComponent(`Plan: ${formData.plan}\nNombre: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTel: ${formData.phone}\nNegocio: ${formData.businessName}\nTipo: ${formData.businessType}\nRequerimientos: ${formData.requirements}\nPresupuesto: ${formData.budget}`);
+    window.open(`mailto:next.u.now@outlook.com?subject=${subject}&body=${body}`, "_blank");
+    setSentMsg("¡Abriendo tu correo! 📧");
     setTimeout(() => { setDialogOpen(false); setSentMsg(null); }, 3000);
   };
 
