@@ -268,12 +268,12 @@ const Packages = () => {
               <input required placeholder="Apellido *" value={formData.lastName} onChange={update("lastName")} className={inputClass} />
               <input required type="email" placeholder="Email *" value={formData.email} onChange={update("email")} className={inputClass} />
               <div className="flex gap-2">
-                <select value={dialCode} onChange={(e) => setDialCode(e.target.value)} className={`${inputClass} w-28 shrink-0`} aria-label="Código de país">
+                <select value={dialCode} onChange={(e) => setDialCode(e.target.value)} className={`${inputClass} w-20 shrink-0 px-2`} aria-label="Código de país">
                   {countries.map(c => (
                     <option key={c.code} value={c.dial}>{c.flag} {c.dial}</option>
                   ))}
                 </select>
-                <input required type="tel" placeholder="Teléfono *" value={formData.phone} onChange={update("phone")} className={inputClass} />
+                <input required type="tel" placeholder="Teléfono *" value={formData.phone} onChange={update("phone")} className={`${inputClass} flex-1`} />
               </div>
               <input required placeholder="Nombre del negocio *" value={formData.businessName} onChange={update("businessName")} className={inputClass} />
               <select required value={formData.businessType} onChange={update("businessType")} className={inputClass}>
