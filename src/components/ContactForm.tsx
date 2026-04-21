@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Gift } from "lucide-react";
+import { countries, defaultCountry } from "@/lib/countries";
 
 const businessTypes = ["Comercio / Retail", "Servicios profesionales", "Restaurante / Alimentos", "Tecnología", "Salud / Bienestar", "Educación", "Otro"];
 
@@ -28,6 +29,8 @@ const emptyForm: FormData = {
 const ContactForm = () => {
   const [formData, setFormData] = useState<FormData>({ ...emptyForm });
   const [sentMsg, setSentMsg] = useState<string | null>(null);
+  const [dialCode, setDialCode] = useState<string>(defaultCountry.dial);
+  const fullPhone = () => `${dialCode} ${formData.phone}`.trim();
 
   const update = (field: keyof FormData) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setFormData(prev => ({ ...prev, [field]: e.target.value }));
@@ -44,7 +47,7 @@ const ContactForm = () => {
   const sendWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    const message = `*Primera Asesoría Gratis*%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${formData.phone}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
+    const message = `*Primera Asesoría Gratis*%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${fullPhone()}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
     window.open(`https://wa.me/593983949211?text=${message}`, "_blank");
     setSentMsg("¡Mensaje enviado por WhatsApp! 🎉");
     setFormData({ ...emptyForm });
@@ -55,7 +58,7 @@ const ContactForm = () => {
     e.preventDefault();
     if (!validate()) return;
     const subject = encodeURIComponent("Primera Asesoría Gratis - Next U");
-    const body = encodeURIComponent(`Nombre: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTel: ${formData.phone}\nNegocio: ${formData.businessName}\nTipo: ${formData.businessType}\nRequerimientos: ${formData.requirements}\nPresupuesto: ${formData.budget}`);
+    const body = encodeURIComponent(`Nombre: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTel: ${fullPhone()}\nNegocio: ${formData.businessName}\nTipo: ${formData.businessType}\nRequerimientos: ${formData.requirements}\nPresupuesto: ${formData.budget}`);
     window.open(`mailto:next.u.now@outlook.com?subject=${subject}&body=${body}`, "_blank");
     setSentMsg("¡Abriendo tu correo! 📧");
     setFormData({ ...emptyForm });
@@ -86,7 +89,14 @@ const ContactForm = () => {
             <input required placeholder="Nombre *" value={formData.firstName} onChange={update("firstName")} className={inputClass} />
             <input required placeholder="Apellido *" value={formData.lastName} onChange={update("lastName")} className={inputClass} />
             <input required type="email" placeholder="Email *" value={formData.email} onChange={update("email")} className={inputClass} />
-            <input required type="tel" placeholder="Teléfono *" value={formData.phone} onChange={update("phone")} className={inputClass} />
+            <div className="flex gap-2">
+              <select value={dialCode} onChange={(e) => setDialCode(e.target.value)} className={`${inputClass} w-28 shrink-0`} aria-label="Código de país">
+                {countries.map(c => (
+                  <option key={c.code} value={c.dial}>{c.flag} {c.dial}</option>
+                ))}
+              </select>
+              <input required type="tel" placeholder="Teléfono *" value={formData.phone} onChange={update("phone")} className={inputClass} />
+            </div>
             <input required placeholder="Nombre del negocio *" value={formData.businessName} onChange={update("businessName")} className={inputClass} />
             <select required value={formData.businessType} onChange={update("businessType")} className={inputClass}>
               <option value="">Tipo de negocio *</option>
