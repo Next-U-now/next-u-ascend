@@ -90,7 +90,7 @@ const ContactForm = () => {
             <input required placeholder="Apellido *" value={formData.lastName} onChange={update("lastName")} className={inputClass} />
             <input required type="email" placeholder="Email *" value={formData.email} onChange={update("email")} className={inputClass} />
             <div className="flex gap-2">
-              <select value={dialCode} onChange={(e) => setDialCode(e.target.value)} className={`${inputClass} w-20 shrink-0 px-2`} aria-label="Código de país">
+              <select value={dialCode} onChange={(e) => setDialCode(e.target.value)} className={`${inputClass} w-14 shrink-0 px-1 text-center`} aria-label="Código de país" title={`Código ${dialCode}`}>
                 {countries.map(c => (
                   <option key={c.code} value={c.dial}>{c.flag} {c.dial}</option>
                 ))}
