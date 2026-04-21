@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Check, Sparkles, Globe, Wrench, DollarSign, Users, CreditCard, Wallet, CalendarClock, FileSignature, UserCheck } from "lucide-react";
+import { countries, defaultCountry } from "@/lib/countries";
 
 const businessTypes = ["Comercio / Retail", "Servicios profesionales", "Restaurante / Alimentos", "Tecnología", "Salud / Bienestar", "Educación", "Otro"];
 
@@ -75,6 +76,8 @@ const Packages = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({ ...emptyForm });
   const [sentMsg, setSentMsg] = useState<string | null>(null);
+  const [dialCode, setDialCode] = useState<string>(defaultCountry.dial);
+  const fullPhone = () => `${dialCode} ${formData.phone}`.trim();
 
   const openForPlan = (pkg: typeof packages[0]) => {
     const isVip = pkg.name === "Next U VIP";
@@ -102,7 +105,7 @@ const Packages = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-    const message = `*Agendar Cita*%0APlan: ${formData.plan}%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${formData.phone}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
+    const message = `*Agendar Cita*%0APlan: ${formData.plan}%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${fullPhone()}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
     window.open(`https://wa.me/593983949211?text=${message}`, "_blank");
     setSentMsg("¡Mensaje enviado por WhatsApp! 🎉");
     setTimeout(() => { setDialogOpen(false); setSentMsg(null); }, 3000);
@@ -111,7 +114,7 @@ const Packages = () => {
   const sendEmail = () => {
     if (!validate()) return;
     const subject = encodeURIComponent(`Agendar Cita - ${formData.plan}`);
-    const body = encodeURIComponent(`Plan: ${formData.plan}\nNombre: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTel: ${formData.phone}\nNegocio: ${formData.businessName}\nTipo: ${formData.businessType}\nRequerimientos: ${formData.requirements}\nPresupuesto: ${formData.budget}`);
+    const body = encodeURIComponent(`Plan: ${formData.plan}\nNombre: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTel: ${fullPhone()}\nNegocio: ${formData.businessName}\nTipo: ${formData.businessType}\nRequerimientos: ${formData.requirements}\nPresupuesto: ${formData.budget}`);
     window.open(`mailto:next.u.now@outlook.com?subject=${subject}&body=${body}`, "_blank");
     setSentMsg("¡Abriendo tu correo! 📧");
     setTimeout(() => { setDialogOpen(false); setSentMsg(null); }, 3000);
@@ -264,7 +267,14 @@ const Packages = () => {
               <input required placeholder="Nombre *" value={formData.firstName} onChange={update("firstName")} className={inputClass} />
               <input required placeholder="Apellido *" value={formData.lastName} onChange={update("lastName")} className={inputClass} />
               <input required type="email" placeholder="Email *" value={formData.email} onChange={update("email")} className={inputClass} />
-              <input required type="tel" placeholder="Teléfono *" value={formData.phone} onChange={update("phone")} className={inputClass} />
+              <div className="flex gap-2">
+                <select value={dialCode} onChange={(e) => setDialCode(e.target.value)} className={`${inputClass} w-28 shrink-0`} aria-label="Código de país">
+                  {countries.map(c => (
+                    <option key={c.code} value={c.dial}>{c.flag} {c.dial}</option>
+                  ))}
+                </select>
+                <input required type="tel" placeholder="Teléfono *" value={formData.phone} onChange={update("phone")} className={inputClass} />
+              </div>
               <input required placeholder="Nombre del negocio *" value={formData.businessName} onChange={update("businessName")} className={inputClass} />
               <select required value={formData.businessType} onChange={update("businessType")} className={inputClass}>
                 <option value="">Tipo de negocio *</option>
