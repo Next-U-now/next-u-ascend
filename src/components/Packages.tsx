@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Check, Sparkles, Globe, Wrench, DollarSign, Users } from "lucide-react";
+import { Check, Sparkles, Globe, Wrench, DollarSign, Users, CreditCard, Wallet, CalendarClock, FileSignature, UserCheck } from "lucide-react";
 
 const businessTypes = ["Comercio / Retail", "Servicios profesionales", "Restaurante / Alimentos", "Tecnología", "Salud / Bienestar", "Educación", "Otro"];
 
