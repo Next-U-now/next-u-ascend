@@ -77,7 +77,12 @@ const Packages = () => {
   const [sentMsg, setSentMsg] = useState<string | null>(null);
 
   const openForPlan = (pkg: typeof packages[0]) => {
-    setFormData({ ...emptyForm, plan: `${pkg.name} (${pkg.price})`, budget: pkg.price });
+    const isVip = pkg.name === "Next U VIP";
+    setFormData({
+      ...emptyForm,
+      plan: isVip ? pkg.name : `${pkg.name} (${pkg.price})`,
+      budget: isVip ? "" : pkg.price,
+    });
     setSentMsg(null);
     setDialogOpen(true);
   };
