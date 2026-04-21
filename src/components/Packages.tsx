@@ -117,10 +117,53 @@ const Packages = () => {
   return (
     <section id="paquetes" className="py-32 px-6">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-10">
+        <div className="text-center mb-8">
           <p className="text-sm font-medium tracking-widest uppercase text-primary mb-3">Paquetes</p>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Nuestros Paquetes</h2>
           <p className="text-muted-foreground mt-4">Potenciados con Inteligencia Artificial</p>
+        </div>
+
+        <div className="relative mb-8 mx-auto max-w-3xl rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 via-primary/5 to-transparent p-5 backdrop-blur-sm">
+          <div className="flex items-start gap-3">
+            <div className="shrink-0 w-10 h-10 rounded-xl bg-primary/20 border border-primary/40 flex items-center justify-center">
+              <UserCheck className="w-5 h-5 text-primary" />
+            </div>
+            <div className="flex-1">
+              <p className="text-sm md:text-base font-semibold text-foreground leading-snug">
+                Todos nuestros paquetes <span className="text-primary">incluyen la visita de nuestro experto</span> para analizar tus necesidades y acompañarte en todo el proceso.
+              </p>
+              <p className="text-xs md:text-sm text-muted-foreground mt-1.5 flex items-center gap-1.5 flex-wrap">
+                <CalendarClock className="w-3.5 h-3.5 text-primary" />
+                Agéndala sin problema —
+                <FileSignature className="w-3.5 h-3.5 text-primary" />
+                también para firmar el contrato del servicio.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto max-w-3xl mb-10 grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="rounded-xl border border-border bg-secondary/30 p-3 flex items-center gap-2">
+            <Wallet className="w-4 h-4 text-primary shrink-0" />
+            <div>
+              <p className="text-xs font-semibold text-foreground">Un solo pago en efectivo</p>
+              <p className="text-[10px] text-primary">10% de descuento</p>
+            </div>
+          </div>
+          <div className="rounded-xl border border-border bg-secondary/30 p-3 flex items-center gap-2">
+            <CreditCard className="w-4 h-4 text-primary shrink-0" />
+            <div>
+              <p className="text-xs font-semibold text-foreground">Pago con tarjeta</p>
+              <p className="text-[10px] text-muted-foreground">Crédito o débito</p>
+            </div>
+          </div>
+          <div className="rounded-xl border border-border bg-secondary/30 p-3 flex items-center gap-2">
+            <CalendarClock className="w-4 h-4 text-primary shrink-0" />
+            <div>
+              <p className="text-xs font-semibold text-foreground">Pago en cuotas</p>
+              <p className="text-[10px] text-muted-foreground">Plan flexible a tu medida</p>
+            </div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -154,7 +197,7 @@ const Packages = () => {
 
               <div className="flex items-center gap-1.5 mb-3 px-2 py-1 rounded-lg bg-primary/10 border border-primary/20">
                 <DollarSign className="w-3.5 h-3.5 text-primary shrink-0" />
-                <span className="text-[10px] text-primary font-semibold">10% OFF pagando en efectivo</span>
+                <span className="text-[10px] text-primary font-semibold">Efectivo · Tarjeta · Cuotas</span>
               </div>
 
               <ul className="space-y-2 flex-1">
