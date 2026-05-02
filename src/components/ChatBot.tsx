@@ -9,7 +9,7 @@ interface Message {
 
 const defaultResponses = [
   "¡Hola! 👋 Soy la mascota de Next U. Por ahora mis respuestas son limitadas, pero pronto tendré IA para ayudarte mejor.",
-  "Puedes contactarnos por WhatsApp para una atención personalizada: wa.me/593983949211",
+  "Puedes contactarnos por WhatsApp para una atención personalizada: wa.me/593998575218",
   "Ofrecemos paquetes desde $50 con consultoría IA incluida. ¡Revisa nuestros planes!",
   "¿Te interesa saber más? Escríbenos y te asesoramos sin compromiso 🚀",
 ];
