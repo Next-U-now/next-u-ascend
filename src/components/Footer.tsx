@@ -48,7 +48,7 @@ const Footer = () => (
             </a>
             <a href="https://wa.me/593998575218" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors">
               <Phone className="w-4 h-4 text-primary" />
-              +593 983 949 211
+              +593 998 575 218
             </a>
           </div>
         </div>
