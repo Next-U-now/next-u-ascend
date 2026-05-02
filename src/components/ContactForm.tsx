@@ -48,7 +48,7 @@ const ContactForm = () => {
     e.preventDefault();
     if (!validate()) return;
     const message = `*Primera Asesoría Gratis*%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${fullPhone()}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
-    window.open(`https://wa.me/593983949211?text=${message}`, "_blank");
+    window.open(`https://wa.me/593998575218?text=${message}`, "_blank");
     setSentMsg("¡Mensaje enviado por WhatsApp! 🎉");
     setFormData({ ...emptyForm });
     setTimeout(() => setSentMsg(null), 4000);

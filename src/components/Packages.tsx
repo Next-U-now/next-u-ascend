@@ -106,7 +106,7 @@ const Packages = () => {
     e.preventDefault();
     if (!validate()) return;
     const message = `*Agendar Cita*%0APlan: ${formData.plan}%0ANombre: ${formData.firstName} ${formData.lastName}%0AEmail: ${formData.email}%0ATel: ${fullPhone()}%0ANegocio: ${formData.businessName}%0ATipo: ${formData.businessType}%0ARequerimientos: ${formData.requirements}%0APresupuesto: ${formData.budget}`;
-    window.open(`https://wa.me/593983949211?text=${message}`, "_blank");
+    window.open(`https://wa.me/593998575218?text=${message}`, "_blank");
     setSentMsg("¡Mensaje enviado por WhatsApp! 🎉");
     setTimeout(() => { setDialogOpen(false); setSentMsg(null); }, 3000);
   };

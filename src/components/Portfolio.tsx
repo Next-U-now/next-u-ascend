@@ -10,13 +10,13 @@ import logoAyara from "@/assets/logo-ayara.jpeg";
 import logoNexvend from "@/assets/logo-nexvend.png";
 
 const clients = [
-  { name: "NexVend", logo: logoNexvend, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20NexVend" },
+  { name: "NexVend", logo: logoNexvend, link: "https://wa.me/593998575218?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20NexVend" },
   { name: "Quiereté", logo: logoQuierete, link: "https://www.instagram.com/quierete_tea?igsh=bWFmaWxvM2xrOTN2" },
   { name: "GilmarFly", logo: logoGilmarfly, link: "https://www.tiktok.com/@gilmarfly?_r=1&_t=ZT-95Nih5w20tB" },
   { name: "Ascendio Growth Partners", logo: logoAscendio, link: "https://www.ascendiogp.com" },
-  { name: "Ecuñan", logo: logoEcunan, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ecuñan" },
-  { name: "EcuaCybrg Bionics", logo: logoEcuacybrg, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20EcuaCybrg" },
-  { name: "Ayara", logo: logoAyara, link: "https://wa.me/593983949211?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ayara" },
+  { name: "Ecuñan", logo: logoEcunan, link: "https://wa.me/593998575218?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ecuñan" },
+  { name: "EcuaCybrg Bionics", logo: logoEcuacybrg, link: "https://wa.me/593998575218?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20EcuaCybrg" },
+  { name: "Ayara", logo: logoAyara, link: "https://wa.me/593998575218?text=Hola%2C%20me%20interesa%20saber%20más%20sobre%20Ayara" },
 ];
 
 const Portfolio = () => {
