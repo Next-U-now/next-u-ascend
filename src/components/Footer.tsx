@@ -56,8 +56,11 @@ const Footer = () => (
         <div>
           <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">Navegación</h4>
           <div className="flex flex-col gap-2">
-            <a href="#servicios" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Servicios</a>
-            <a href="#portafolio" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Portafolio</a>
+            <a href="/#servicios" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Servicios</a>
+            <a href="/#portafolio" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Portafolio</a>
+            <a href="/contacto" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Contáctanos</a>
+            <a href="/privacidad" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Política de Privacidad</a>
+            <a href="/terminos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Términos y Condiciones</a>
           </div>
         </div>
       </div>
