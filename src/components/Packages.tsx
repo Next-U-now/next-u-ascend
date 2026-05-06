@@ -115,7 +115,7 @@ const Packages = () => {
     if (!validate()) return;
     const subject = encodeURIComponent(`Agendar Cita - ${formData.plan}`);
     const body = encodeURIComponent(`Plan: ${formData.plan}\nNombre: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTel: ${fullPhone()}\nNegocio: ${formData.businessName}\nTipo: ${formData.businessType}\nRequerimientos: ${formData.requirements}\nPresupuesto: ${formData.budget}`);
-    window.open(`mailto:next.u.now@outlook.com?subject=${subject}&body=${body}`, "_blank");
+    window.open(`mailto:info@thenextunow.com?subject=${subject}&body=${body}`, "_blank");
     setSentMsg("¡Abriendo tu correo! 📧");
     setTimeout(() => { setDialogOpen(false); setSentMsg(null); }, 3000);
   };
