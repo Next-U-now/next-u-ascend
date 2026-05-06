@@ -59,7 +59,7 @@ const ContactForm = () => {
     if (!validate()) return;
     const subject = encodeURIComponent("Primera Asesoría Gratis - Next U");
     const body = encodeURIComponent(`Nombre: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nTel: ${fullPhone()}\nNegocio: ${formData.businessName}\nTipo: ${formData.businessType}\nRequerimientos: ${formData.requirements}\nPresupuesto: ${formData.budget}`);
-    window.open(`mailto:next.u.now@outlook.com?subject=${subject}&body=${body}`, "_blank");
+    window.open(`mailto:info@thenextunow.com?subject=${subject}&body=${body}`, "_blank");
     setSentMsg("¡Abriendo tu correo! 📧");
     setFormData({ ...emptyForm });
     setTimeout(() => setSentMsg(null), 4000);
