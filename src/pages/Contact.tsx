@@ -28,6 +28,7 @@ const Contact = () => (
             <h2 className="text-xl font-bold mb-3">Contact Information</h2>
             <a href="http://www.thenextunow.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground"><Globe className="w-4 h-4 text-primary" />www.thenextunow.com</a>
             <a href="mailto:next.u.now@outlook.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground"><Mail className="w-4 h-4 text-primary" />next.u.now@outlook.com</a>
+            <a href="mailto:info@thenextunow.com" className="flex items-center gap-3 text-muted-foreground hover:text-foreground"><Mail className="w-4 h-4 text-primary" />info@thenextunow.com</a>
             <a href="https://wa.me/593998575218" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-muted-foreground hover:text-foreground"><Phone className="w-4 h-4 text-primary" />+593 998 575 218</a>
             <div className="flex items-center gap-3 text-muted-foreground pt-2"><Clock className="w-4 h-4 text-primary" />Mon – Fri · 9:00 AM – 6:00 PM</div>
           </div>
