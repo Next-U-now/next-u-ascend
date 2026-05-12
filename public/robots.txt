@@ -12,3 +12,5 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+Sitemap: https://next-u-ascend.lovable.app/sitemap.xml
