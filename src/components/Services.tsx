@@ -1,4 +1,4 @@
-import { Rocket, TrendingUp, Lightbulb, Bot, Zap, Cpu, Smartphone, Megaphone, Palette, Video } from "lucide-react";
+import { Rocket, TrendingUp, Lightbulb, Bot, Zap, Cpu, Smartphone, Megaphone, Palette, Video, BarChart3, CreditCard } from "lucide-react";
 
 const services = [
   {
