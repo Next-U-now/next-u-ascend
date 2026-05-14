@@ -1,4 +1,4 @@
-import { Rocket, TrendingUp, Lightbulb, Bot, Zap, Cpu, Smartphone, Megaphone, Palette, Video } from "lucide-react";
+import { Rocket, TrendingUp, Lightbulb, Bot, Zap, Cpu, Smartphone, Megaphone, Palette, Video, BarChart3, CreditCard } from "lucide-react";
 
 const services = [
   {
@@ -50,6 +50,16 @@ const services = [
     icon: Video,
     title: "Edición de Video & Contenido",
     description: "Producción y edición de video profesional, contenido para redes sociales, reels, shorts y material audiovisual de alto impacto.",
+  },
+  {
+    icon: BarChart3,
+    title: "Publicidad Meta Ads",
+    description: "Creamos y gestionamos campañas publicitarias en Facebook e Instagram (Meta Ads) para captar clientes, aumentar ventas y escalar tu negocio con resultados medibles.",
+  },
+  {
+    icon: CreditCard,
+    title: "Tarjetas de Lealtad Digitales",
+    description: "Implementamos tarjetas de lealtad digitales online para celulares: tus clientes acumulan puntos y recompensas desde su smartphone, fidelizando a tu audiencia y aumentando la retención.",
   },
 ];
 const Services = () => {
