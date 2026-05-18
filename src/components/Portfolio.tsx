@@ -34,29 +34,6 @@ const Portfolio = () => {
           </p>
         </div>
 
-        {/* Featured: NexVend */}
-        <a
-          href={clients[0].link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group block mb-10 rounded-3xl border border-primary/30 bg-gradient-to-br from-primary/5 to-transparent overflow-hidden hover:border-primary/60 transition-all duration-500 neon-card"
-        >
-          <div className="flex flex-col md:flex-row items-center gap-6 p-6 md:p-10">
-            <div className="w-24 h-24 md:w-28 md:h-28 shrink-0 rounded-2xl overflow-hidden bg-white p-1">
-              <img src={clients[0].logo} alt={clients[0].name} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
-            </div>
-            <div className="text-center md:text-left flex-1">
-              <span className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-3">Nuevo Proyecto</span>
-              <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-gradient neon-text mb-2">{clients[0].name}</h3>
-              <p className="text-muted-foreground text-sm mb-2">Máquinas expendedoras inteligentes — promociona tu marca en espacios estratégicos con tecnología de vanguardia.</p>
-              <p className="text-xs text-yellow-400 font-semibold mb-3">⚠️ ¿Problema con tu máquina expendedora? Haz click aquí</p>
-              <span className="inline-flex items-center gap-2 text-primary font-semibold text-sm group-hover:gap-3 transition-all">
-                Contáctanos por WhatsApp <ExternalLink className="w-4 h-4" />
-              </span>
-            </div>
-          </div>
-        </a>
-
         {/* Carousel of clients */}
         <div className="px-10">
           <Carousel
