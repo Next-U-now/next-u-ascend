@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Check, Sparkles, Globe, Wrench, DollarSign, Users, CreditCard, Wallet, CalendarClock, FileSignature, UserCheck } from "lucide-react";
+import { Check, Sparkles, Globe, DollarSign, Users, CreditCard, Wallet, CalendarClock, FileSignature, UserCheck } from "lucide-react";
 import { countries, defaultCountry } from "@/lib/countries";
 
 const businessTypes = ["Comercio / Retail", "Servicios profesionales", "Restaurante / Alimentos", "Tecnología", "Salud / Bienestar", "Educación", "Otro"];
@@ -217,8 +217,6 @@ const Packages = () => {
                       <Users className="w-3.5 h-3.5 text-accent-foreground mt-0.5 shrink-0" />
                     ) : f.includes("web") || f.includes("Página") ? (
                       <Globe className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
-                    ) : f.includes("Mantenimiento") ? (
-                      <Wrench className="w-3.5 h-3.5 text-muted-foreground mt-0.5 shrink-0" />
                     ) : (
                       <Check className="w-3.5 h-3.5 text-primary mt-0.5 shrink-0" />
                     )}
