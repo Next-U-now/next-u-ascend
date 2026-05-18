@@ -65,7 +65,7 @@ const packages = [
     price: "$300",
     oldPrice: "$599",
     description: "Escala con inteligencia artificial",
-    features: ["Todo de Next U Plus", "Página web profesional", "Hosting y dominio por 1 año incluidos", "Mantenimiento web por 1 año incluido", "8 sesiones de mentoría", "Chatbot IA personalizado", "Estrategia de redes con IA", "Diseño de marca", "Grupo exclusivo"],
+    features: ["Todo de Next U Plus", "Página web profesional", "Hosting y dominio por 1 año incluidos", "8 sesiones de mentoría", "Chatbot IA personalizado", "Estrategia de redes con IA", "Diseño de marca", "Grupo exclusivo"],
     highlight: false,
     offer: true,
     hasWeb: true,
