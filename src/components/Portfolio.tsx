@@ -1,4 +1,3 @@
-import { ExternalLink } from "lucide-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import logoQuierete from "@/assets/logo-quierete.png";
