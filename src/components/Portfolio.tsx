@@ -41,7 +41,7 @@ const Portfolio = () => {
             className="w-full"
           >
             <CarouselContent className="-ml-4">
-              {clients.slice(1).map((client, i) => (
+              {clients.map((client, i) => (
                 <CarouselItem key={i} className="pl-4 basis-1/2 md:basis-1/3">
                   {client.link ? (
                     <a href={client.link} target="_blank" rel="noopener noreferrer" className="group relative rounded-2xl bg-card border border-border overflow-hidden flex flex-col items-center justify-center p-4 hover:border-primary/50 transition-all duration-500 neon-card cursor-pointer">
